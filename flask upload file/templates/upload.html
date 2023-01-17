@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="text/css" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>upload document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.css" integrity="sha512-7uSoC3grlnRktCWoO4LjHMjotq8gf9XDFQerPuaph+cqR7JC9XKGdvN+UwZMC14aAaBDItdRj3DcSDs4kMWUgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <h1 style="text-align: center; color: blue;" >Upload your image Here </h1>
+
+
+   
+    <form action="{{url_for('upload_file')}}" class="dropzone" style="align-items: center; width: 200px;"> 
+
+    </form> <br><br><br>
+    <h3></h3>
+
+    <form method="POST" enctype="multipart/form-data" > 
+        <div>
+            <input type="file" name="file" id="file">
+        </div> <br>
+ 
+        <div>
+            <button  style="background-color: blue; color: white; margin: 10px; padding: 10px; border-radius: 8px;" >upload image</button>
+        </div>
+
+    </form> <br><br>
+
+
+    {% for file  in upfiles %}
+            <img src="{{ url_for('upload',filename=file)}}" alt="{{file}}" style="width: 150px; height: 100px;">
+    {% endfor %}
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/dropzone.min.js" integrity="sha512-U2WE1ktpMTuRBPoCFDzomoIorbOyUv0sP8B+INA3EzNAhehbzED1rOJg6bCqPf/Tuposxb5ja/MAUnC8THSbLQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>    
+</body>
+<style>
+   
+</style>
+</html>
